@@ -5,7 +5,7 @@ def create_app():
     app = Flask(__name__)
 
     #CHANGE THIS LATER
-    app.config['SECRET_KEY'] = 'SITE_SECRET'
+    app.config['SECRET_KEY'] = SITE_SECRET
     #CHANGE THIS LATER
 
     from .views import views
