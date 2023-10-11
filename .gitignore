@@ -1,3 +1,4 @@
 # ignore all files in any directory named "makaenv"
 makaenv/
 makenv/
+makenv/__pycache__/
