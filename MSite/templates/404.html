@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %} HAPPY BIRTHDAY MAKAA {% endblock %}
+
+{% block head %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bday.css') }}">
+{% endblock %}
+
+{% block body %} 
+<div style="height: 100vh; background-image: url('{{ gif_path }}'); background-size: cover; background-position: center center; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center;">
+    <div id="birthdayMessage" style="text-align: center; font-size: 3em; font-family: pexico_microregular; color: white; background-color: rgba(0, 0, 0, 0.3); display: inline-block; padding: 5px 10px;">
+        This Page Doesn't Exist
+        <div class="slide-container" style="position: relative; overflow: hidden; display: inline-block;">
+            <span id="currentPart" class="slide" onclick="changeMessage()">404</span>
+            <span id="nextPart" class="slide" style="position: absolute; top: 100%; left: 0; transition: transform 0.5s ease;"></span>
+        </div>
+    </div>
+
+    <script>
+        const currentPart = document.getElementById('currentPart');
+        const nextPart = document.getElementById('nextPart');
+        const messages = ["404?", "404!"];
+        const colors = ["red", "blue", "green", "purple", "pink"]; 
+        let messageIndex = 0;
+        
+
+        function getRandomColor() {
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function cycleMessage() {
+            console.log("Changing message...");
+            const newColor = getRandomColor();
+            nextPart.style.color = newColor;
+            nextPart.textContent = messages[messageIndex];
+            currentPart.style.transform = 'translateY(-100%)';
+            nextPart.style.transform = 'translateY(0)';
+
+            setTimeout(() => {
+                currentPart.textContent = messages[messageIndex];
+                currentPart.style.color = newColor;  // Set new color here as well so it remains consistent after change
+                currentPart.style.transform = 'translateY(0)';
+                nextPart.style.transform = 'translateY(100%)';
+
+                messageIndex = (messageIndex + 1) % messages.length;  // This ensures we cycle through messages
+                setTimeout(cycleMessage, 150);
+            }, 500);
+        }
+
+        function changeMessage() {
+            const fontSize = Math.min(3, 30 / birthdayMessage.length); // Adjust the 3 and 30 as needed
+            birthdayMessage.style.fontSize = "18px";
+            document.getElementById('birthdayMessage').textContent = "I love you more than anything. Now, that love is immortalized within the vast, infinite expanses of cyberspace! Long after we are dead the wayback machine and internet archives will forever document this domain as being a display of my undying love. MUAHAHAHHA (The backend of this site will change this page into a neat gallery/ art page for you when your bday is over <3)";
+        }
+
+        setTimeout(cycleMessage, 3000);
+    </script>
+</div>
+{% endblock %}

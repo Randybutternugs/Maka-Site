@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+
+/* #region Homepage Title & Nav */
+.resize-text {
+  font-family: pexico_microregular;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  overflow: hidden;
+}
+
+.resize-text h1 {
+  font-size: 3em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small-text {
+  font-size: 1.5em; /* Adjust the font size as needed */
+}
+/* #endregion */
+
+@font-face {
+  font-family: 'pexico_microregular';
+  src: url('../fonts/setup_-_pexicomicro-regular-webfont.woff2') format('woff2'),
+       url('../fonts/setup_-_pexicomicro-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}

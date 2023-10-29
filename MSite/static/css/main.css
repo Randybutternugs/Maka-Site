@@ -49,6 +49,7 @@
     margin: 50% 10vw 0px 10vw;
     gap: 8%;
     z-index: 99;
+    padding-right: 15%;
 }
     /* #region Link Settings */
     .homenavbar> a:link, .homenavbar > a:visited {

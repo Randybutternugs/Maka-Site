@@ -2,7 +2,10 @@
 
 {% block title %} Maka Site {% endblock %}
 
-{% block head %} {% endblock %}
+{% block head %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="icon" href="{{ url_for('static', filename='Absol.ico') }}" type="image/x-icon">
+{% endblock %}
 
 {% block body %} 
 
@@ -10,13 +13,13 @@
 
 
 <div class = "hometitlebar">
-    <p> FONSECA FONSECA </p>
+    <p> MISHAPITA'S GALLERY </p>
 </div>
 
 <div class = "homenavbar">
-    <a href = "/auth/login"><p>About</p></a>
-    <a href = "/auth/login"><p>Gallery</p></a>
-    <a href = "/auth/login"><p>Patreon</p></a>
+    <a href = "{{ url_for('views.about') }}"><p>About</p></a>
+    <a href = "{{ url_for('views.about') }}"><p>THE GOODS</p></a>
+    <a href = "{{ url_for('views.about') }}"><p>The.</p></a>
 </div>
 
 
@@ -329,7 +332,8 @@
     </div>
   </div>
 
-<!-- #endregion -->
+
 
 
 {% endblock %}
+<!-- #endregion -->
