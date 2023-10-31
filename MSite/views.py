@@ -29,10 +29,11 @@ def about():
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \ /
 
 # Make more as needed
+# USE ROUTE BELOW FOR TESTING ERROR CODES AND MAKING APPROPRIATE MESSAGES
 
-@views.route('/error') #Currently set to trigger a 500 error when I input this route
-def trigger_forbidden():
-    abort(500)
+#@views.route('/error') #Currently set to trigger a 500 error when I input this route
+#def trigger_forbidden():
+ #   abort(500)
 
 # 404 error handler for this blueprint
 @error_handlers.app_errorhandler(404)
