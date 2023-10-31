@@ -3,6 +3,8 @@ import random
 import logging
 import requests
 
+
+
 #Declare Blueprints for main app (views) and the error handler I think works(?) (error_handlers)
 views = Blueprint('views', __name__)
 error_handlers = Blueprint('error_handlers', __name__)
