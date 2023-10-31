@@ -3,7 +3,7 @@
 {% block title %} 404 ERROR {% endblock %}
 
 {% block head %} 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/404.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/error.css') }}">
 <link rel="icon" href="{{ url_for('static', filename='Absol.ico') }}" type="image/x-icon">
 {% endblock %}
 
@@ -22,7 +22,7 @@
 <script>
     const currentPart = document.getElementById('currentPart');
     const nextPart = document.getElementById('nextPart');
-    const messages = ["ERROR", "404"];
+    const messages = ["ERROR", "{{ error_code }}"];
     const colors = ["red", "blue", "green", "purple", "pink"]; 
     let messageIndex = 0;
     
@@ -32,7 +32,7 @@
     }
 
     function cycleMessage() {
-        console.log("Changing message...");
+        // console.log("Changing message..."); Uncomment this to check functionality if needed in the future ;)
         const newColor = getRandomColor();
         nextPart.style.color = newColor;
         nextPart.textContent = messages[messageIndex];
