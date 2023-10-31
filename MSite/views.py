@@ -31,26 +31,27 @@ def about():
 # Make more as needed
 # USE ROUTE BELOW FOR TESTING ERROR CODES AND MAKING APPROPRIATE MESSAGES
 
-@views.route('/error') #Currently set to trigger a 500 error when I input this route
-def trigger_forbidden():
-    abort(500)
+# @views.route('/error') #Currently set to trigger a 500 error when I input this route
+# def trigger_forbidden():
+#     abort(500)
 
 # 404 error handler for this blueprint
 @error_handlers.app_errorhandler(404)
 def not_found(e):
     gif_path = random.choice(get_gif_urls())
 
-    page_error_message = "Page Not Found "
-    font_size = "8vh"
+    # List contains the error code, message displayed, and the page text font size.
+    code_message_font = [404, "Page Not Found ", "8vh"]
 
-    return render_template("error.html", gif_path=gif_path, error_code=404, page_error_message=page_error_message, font_size=font_size), 404
+
+    return render_template("error.html", gif_path=gif_path, code_message_font=code_message_font), 404
 
 # 500 error handler for this blueprint
 @error_handlers.app_errorhandler(500)
-def not_found(e):
+def server_error(e):
     gif_path = random.choice(get_gif_urls())
 
-    page_error_message = "Unexpected Server-Side Exception "
-    font_size = "5vh"
+    # List contains the [error code, message displayed, and the page text font size].
+    code_message_font = [500, "Unexpected Server-Side Exception ", "5vh"]
 
-    return render_template("error.html", gif_path=gif_path, error_code=500, page_error_message=page_error_message, font_size=font_size), 500
+    return render_template("error.html", gif_path=gif_path, code_message_font=code_message_font), 500

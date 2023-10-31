@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %} 404 ERROR {% endblock %}
+{% block title %} ERROR {% endblock %}
 
 {% block head %} 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/error.css') }}">
@@ -11,10 +11,10 @@
 <div style="height: 100vh; background-image: url('{{ gif_path }}'); background-size: cover; background-position: center center; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center;">
     <div id="birthdayMessage" style="position: relative; font-family: pexico_microregular; color: white; background-color: rgba(0, 0, 0, 0.3); display: inline-block; border: solid 2px white; border-radius: 15px; padding: 5%;">
         
-        <span id="404msg"><p style="font-size: {{ font_size }};">{{ page_error_message }}</p></span>
+        <span id="msg"><p style="font-size: {{ code_message_font[2] }};">{{ code_message_font[1] }}</p></span>
         <div class="slide-container" style="position: relative; overflow: hidden; display: inline-block;">
-            <span id="currentPart" class="slide" onclick="changeMessage()" style="font-size: {{ font_size }};">{{ error_code }}</span> 
-            <span id="nextPart" class="slide" style="position: absolute; top: 100%; left: 0; transition: transform 0.5s ease; font-size: {{ font_size }};"></span>
+            <span id="currentPart" class="slide" onclick="changeMessage()" style="font-size: {{ code_message_font[2] }};">{{ code_message_font[0] }}</span> 
+            <span id="nextPart" class="slide" style="position: absolute; top: 100%; left: 0; transition: transform 0.5s ease; font-size: {{ code_message_font[2] }};"></span>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
 <script>
     const currentPart = document.getElementById('currentPart');
     const nextPart = document.getElementById('nextPart');
-    const messages = ["ERROR", "{{ error_code }}"];
+    const messages = ["ERROR", "{{ code_message_font[0] }}"];
     const colors = ["red", "blue", "green", "purple", "pink"]; 
     let messageIndex = 0;
     
