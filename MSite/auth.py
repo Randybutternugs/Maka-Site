@@ -3,8 +3,8 @@ import random
 
 auth = Blueprint('auth', __name__)
 
-def get_gif_urls():
-    return [url_for('static/images', filename=f'gif{i}.gif') for i in range(1, 4)]
+#def get_gif_urls():
+#    return [url_for('static/images', filename=f'gif{i}.gif') for i in range(1, 4)]
 
 @auth.route('/login')
 def login():
