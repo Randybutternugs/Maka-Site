@@ -9,7 +9,7 @@ error_handlers = Blueprint('error_handlers', __name__)
 def get_gif_urls():
     return [url_for('static', filename=f'images/gif{i}.gif') for i in range(1, 4)]
 
-@views.route('/', methods = ['POST', 'GET'])
+@views.route('/')
 def home():
     return render_template("homepage.html")
 
