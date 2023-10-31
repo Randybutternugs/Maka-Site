@@ -41,7 +41,7 @@ def not_found(e):
     gif_path = random.choice(get_gif_urls())
 
     page_error_message = "Page Not Found "
-    font_size = "12vh"
+    font_size = "8vh"
 
     return render_template("error.html", gif_path=gif_path, error_code=404, page_error_message=page_error_message, font_size=font_size), 404
 

@@ -13,7 +13,7 @@
         
         <span id="404msg"><p style="font-size: {{ font_size }};">{{ page_error_message }}</p></span>
         <div class="slide-container" style="position: relative; overflow: hidden; display: inline-block;">
-            <span id="currentPart" class="slide" onclick="changeMessage()" style="font-size: {{ font_size }};">404</span> 
+            <span id="currentPart" class="slide" onclick="changeMessage()" style="font-size: {{ font_size }};">{{ error_code }}</span> 
             <span id="nextPart" class="slide" style="position: absolute; top: 100%; left: 0; transition: transform 0.5s ease; font-size: {{ font_size }};"></span>
         </div>
     </div>
