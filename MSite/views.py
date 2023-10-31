@@ -4,7 +4,7 @@ import logging
 import requests
 
 views = Blueprint('views', __name__)
-bp = Blueprint('my_blueprint', __name__)
+error_handlers = Blueprint('error_handlers', __name__)
 
 def get_gif_urls():
     return [url_for('static', filename=f'images/gif{i}.gif') for i in range(1, 4)]
@@ -23,7 +23,8 @@ def home():
 def about():
     return "This is the about page"
 
-@bp.app_errorhandler(404)
+# 404 error handler for this blueprint
+@error_handlers.app_errorhandler(404)
 def not_found(e):
     gif_path = random.choice(get_gif_urls())
     return render_template("404.html", gif_path=gif_path), 404
