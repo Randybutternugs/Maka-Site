@@ -18,8 +18,8 @@ def logout():
 def sign_up():
     return "<p> Sign Up</p>"
 
-@auth.errorhandler(404)
-def page_not_found(e):
-    gif_path = random.choice(get_gif_urls())
-    # note that we set the 404 status explicitly
-    return render_template("404.html", gif_path=gif_path), 404
+#@auth.errorhandler(404)
+#def page_not_found(e):
+#    gif_path = random.choice(get_gif_urls())
+#    # note that we set the 404 status explicitly
+#    return render_template("404.html", gif_path=gif_path), 404

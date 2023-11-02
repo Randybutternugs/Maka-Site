@@ -1,3 +1,7 @@
+/* MAIN CSS FOR MAKA SITE (KEEP IT CLEAN!)*/
+
+/* #region HTML Body and Margin/Padding Defaults */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,78 +18,120 @@
     background-color: #021027;
   }
 
-/* #region Homepage Title & Nav */
+/* #endregion */
 
-.hometitlebar {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #c9e2fe;
-    font-family:'HelveticaNeueLT Pro 65 Md';
-    font-size: 2rem;
-    text-align: center;
-    justify-content: center;
-    position: fixed;
-    height: 10vh ;
-    width: 100vw;
-    margin-top: 15%;
-    z-index: 99;
+
+
+
+/* #region Body Background Container */
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-
-.homenavbar {
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #c9e2fe;
-    font-size: 1rem;
-    text-align: right;
-    justify-content: flex-end;
-    align-items: center;
-    position: absolute;
-    height: 5vh;
-    width: 80vw;
-    gap: 8%;
-    z-index: 98;
-    padding-right: 15%;
+.background {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+      object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: radial-gradient(white 0%, white 30%, transparent 80%, transparent);
+          mask-image: radial-gradient(white 0%, white 30%, transparent 80%, transparent);
 }
-    /* #region Link Settings */
-    .homenavbar> a:link, .homenavbar > a:visited {
-        text-decoration: none;
-        font-family:'HelveticaNeueLT Pro 65 Md';
-        color: #c9e2fe;
-    }
-        
-    .homenavbar> a:hover, .homenavbar > a:active {
-        text-decoration: none;
-        color: purple;
-    }
-    /* #endregion */
+
+/* #endregion  */
+
+
+/* #region Homepage Nav Bar */
+
+.navbar {
+  background-color: #000000; /* Deep Black */
+  color: #FFF4E0; /* Vintage White */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  border-bottom: solid 2px #03183b;
+  font-size: calc(15px + 0.5vw);
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-item a {
+  color: #FFF4E0; /* Vintage White */
+  text-decoration: none;
+}
+
+.search-bar input {
+  padding: 5px;
+  margin-right: 5px;
+  background-color: #021027;
+  color: #FFF4E0;
+  border-radius: 5px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+}
+
+.search-bar button {
+  background-color: #03183b; /* Crimson Red */
+  color: #FFF4E9; /* Vintage White */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+}
+
 
 /* #endregion */
 
+
+/* #region Gallery Slider */
+
+.slidecontainer {
+  width: 100%;
+  height: 94vh;
+  /*background: rgba(255, 0, 0, .15);*/
+  display: flex;
+  justify-content: space-between; /* Centers horizontally */
+  align-items: center; /* Centers vertically  */
+}
+
+.slide {
+  display: none;
+  width: 32%;
+  /*background-color: rgba(0, 255, 0, 0.18);*/
+  margin: auto;
+}
+
+.slide img {
+  width: 100%;
+  position: relative;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+/* #endregion */
+
+
 /* #region Background Particles */
 
-  .container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .background {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100%;
-    height: 100%;
-    -webkit-mask-image: radial-gradient(white 0%, white 30%, transparent 80%, transparent);
-            mask-image: radial-gradient(white 0%, white 30%, transparent 80%, transparent);
-  }
-  
+
   .circle-container {
     position: absolute;
     transform: translateY(-10vh);
@@ -6149,6 +6195,7 @@
   }
 
 /* #endregion */
+
 
 /* #region Site Fonts */
 

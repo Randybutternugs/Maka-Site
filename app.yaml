@@ -13,6 +13,9 @@ handlers:
 - url: /static/css
   static_dir: MSite/static/css
 
+- url: /static/js
+  static_dir: MSite/static/js
+
 - url: /static/images
   static_dir: MSite/static/images
 
