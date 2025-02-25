@@ -8,72 +8,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/yli0epv.css">
 {% endblock %}
 
 {% block body %} 
-
-<div class="container"><img class="background" src="{{ url_for('static', filename='images/Background.png') }}"/>
-
-  <!-- #region Title Bar & Navbar -->
-
-
-
-  <nav class="navbar">
-    <ul class="navbar-nav">
-        <li class="nav-item"><a href="/">HOME</a></li>
-        <li class="nav-item"><a href="/about">ABOUT</a></li>
-        <!-- More nav items -->
-    </ul>
-    <div class="search-bar">
-        <input type="text" placeholder="Looky Looky">
-        <button type="submit">:3</button>
+<div class="grid-container">
+  <div class="grid-item merged-1"><img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" width="75%" height="75%"></div>
+  <div class="grid-item merged-2">
+    <div style="display: flex; justify-content: space-around; align-items: center; height: 100%;">
+      <a href="{{ url_for('views.about') }}" style="text-decoration: none; color: inherit;">About</a>
+      <a href="#" style="text-decoration: none; color: inherit;">Gallery</a>
+      <a href="#" style="text-decoration: none; color: inherit;">Blog</a>
+      <a href="#" style="text-decoration: none; color: inherit;">Contact</a>
     </div>
-  </nav>
-
-
-
-  <!-- #endregion -->
-
-  <!-- #region Gallery Slider -->
-
-  <div class="slidecontainer">
-
-    <div class="slide" style="display: block;">
-        <img src="{{ url_for('static', filename='images/mon0.jpg') }}" alt="Image 1">
-    </div>
-
-    <div class="slide" style="display: block;">
-        <img src="{{ url_for('static', filename='images/mon1.jpg') }}" alt="Image 2">
-    </div>
-
-    <div class="slide">
-      <img src="{{ url_for('static', filename='images/mon3.jpg') }}" alt="Image 3">
-    </div>
-
-    <div class="slide" style="display: block;">
-      <img src="{{ url_for('static', filename='images/mon4.jpg') }}" alt="Image 4">
-    </div>
-
-    <!-- More slides make sure to add em laterrr -->
-
   </div>
-
-
-  <script src="{{ url_for('static', filename='js/slider.js') }}"></script>
-
-  <!-- #endregion -->
-
-  <!-- #region Background Particles -->
-  {% for i in range(blue_particle_number) %}
-  <div class="circle-container">
-    <div class="circle" id="{{ i + 1 }}"></div>
-  </div>
-  {% endfor %}
-  <!-- #endregion -->
-
-
+  <div class="grid-item merged-3">SIDEBAR</div>
+  <div class="grid-item merged-4">FIURRR</div>
 </div>
-
 
 {% endblock %}
 
