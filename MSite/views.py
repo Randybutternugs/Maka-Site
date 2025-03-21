@@ -42,6 +42,15 @@ def about():
 #endregion
 
 
+#region =-=-=-=- Gallery Page -=-=-=-=
+
+@views.route('/gallery')
+def gallery():
+    return render_template("gallery.html")
+
+#endregion
+
+
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  |
 #  VIEW FOR TRIGGERING ERRORS FOLLOWED BY ERROR HANDLING ROUTES  |

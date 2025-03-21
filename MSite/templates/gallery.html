@@ -1,40 +1,119 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0" />
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends "base.html" %}
 
-        <title>{% block title %} Tab Title {% endblock %}</title>
+{% block title %} Maka Gallery {% endblock %}
+
+{% block head %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="icon" href="{{ url_for('static', filename='images/Absol.ico') }}" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/yli0epv.css">
+{% endblock %}
+
+{% block body %} 
+<div class="grid-container">
+  <div class="grid-item merged-1"><img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" width="75%" height="75%"></div>
+  <div class="grid-item merged-2">
+    <div style="display: flex; justify-content: space-around; align-items: center; height: 100%;">
+      <a href="{{ url_for('views.about') }}" style="text-decoration: none; color: inherit;">About</a>
+      <a href="{{ url_for('views.gallery') }}" style="text-decoration: none; color: inherit;">Gallery</a>
+      <a href="#" style="text-decoration: none; color: inherit;">Blog</a>
+      <a href="#" style="text-decoration: none; color: inherit;">Contact</a>
+    </div>
+  </div>
+  <div class="grid-item merged-3">
+    <div class="sidebar">
+      <h2>Categories</h2>
+      <ul class="category-list">
+        <li><a href="#all" class="category-link active">All</a></li>
+        <li><a href="#digital" class="category-link">Digital Art</a></li>
+        <li><a href="#traditional" class="category-link">Traditional</a></li>
+        <li><a href="#sketches" class="category-link">Sketches</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid-item merged-4">
+    <div class="gallery-container">
+      <h1 class="gallery-title">Gallery</h1>
+      <div class="gallery-grid">
+        <!-- Gallery images will be populated here -->
+        <!-- Example items (replace with your actual images) -->
+        <div class="gallery-item" data-category="digital">
+          <img src="{{ url_for('static', filename='images/gallery-placeholder-1.jpg') }}" alt="Artwork 1">
+          <div class="gallery-item-info">
+            <h3>Artwork Title 1</h3>
+            <p>Digital Art, 2023</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="traditional">
+          <img src="{{ url_for('static', filename='images/gallery-placeholder-2.jpg') }}" alt="Artwork 2">
+          <div class="gallery-item-info">
+            <h3>Artwork Title 2</h3>
+            <p>Traditional, 2023</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="sketches">
+          <img src="{{ url_for('static', filename='images/gallery-placeholder-3.jpg') }}" alt="Artwork 3">
+          <div class="gallery-item-info">
+            <h3>Artwork Title 3</h3>
+            <p>Sketch, 2022</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="digital">
+          <img src="{{ url_for('static', filename='images/gallery-placeholder-4.jpg') }}" alt="Artwork 4">
+          <div class="gallery-item-info">
+            <h3>Artwork Title 4</h3>
+            <p>Digital Art, 2023</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="traditional">
+          <img src="{{ url_for('static', filename='images/gallery-placeholder-5.jpg') }}" alt="Artwork 5">
+          <div class="gallery-item-info">
+            <h3>Artwork Title 5</h3>
+            <p>Traditional, 2022</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="sketches">
+          <img src="{{ url_for('static', filename='images/gallery-placeholder-6.jpg') }}" alt="Artwork 6">
+          <div class="gallery-item-info">
+            <h3>Artwork Title 6</h3>
+            <p>Sketch, 2023</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Simple gallery filtering
+  document.addEventListener('DOMContentLoaded', function() {
+    const categoryLinks = document.querySelectorAll('.category-link');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    categoryLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        // Remove active class from all links
+        categoryLinks.forEach(l => l.classList.remove('active'));
         
-
-        {% block head %}
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
-        <link rel="icon" href="{{ url_for('static', filename='images/Absol.ico') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.typekit.net/yli0epv.css">
-        {% endblock %}
+        // Add active class to clicked link
+        this.classList.add('active');
         
-    </head>
-
-
-    <body>
+        const category = this.getAttribute('href').substring(1);
         
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        {% block body %}
-
-        {% endblock %}
-    </body>
-
-</html>
+        // Show all or filter by category
+        galleryItems.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+{% endblock %}
