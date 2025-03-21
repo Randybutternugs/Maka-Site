@@ -3,100 +3,294 @@
 /* #region HTML Body and Margin/Padding Defaults */
 
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  body {
-    background-color: #FFEBEB;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    width: 100vw;
-    height: 100vh;
-  }
-  .grid-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    font-size: 1.2em;
-  }
-  /* Top-left merged cell: Boxes 1,2,7,8 */
-  .merged-1 {
-    grid-column: 1 / span 2;  /* Columns 1-2 */
-    grid-row: 1 / span 2;     /* Rows 1-2 */
-  }
-  /* Top-right merged cell: Boxes 3,4,5,6,9,10,11,12 */
-  .merged-2 {
-    display: block;
-    padding: 20px; /* optional: add padding if needed */
-    grid-column: 3 / span 4;  /* Columns 3-6 */
-    grid-row: 1 / span 2;     /* Rows 1-2 */
-    font-family: "highest-praise", sans-serif;
-    font-style: normal;
-    font-size: 2.75vw;
-    text-decoration: none
-  }
-  /* Bottom-left merged cell: Boxes 13,14,19,20,25,26,31,32 */
-  /* Bottom-left merged cell: Originally boxes 13,14,19,20,25,26,31,32.
-    Now expanded to include the left column from merged-4 (15,21,27,33). */
-  .merged-3 {
-    grid-column: 1 / span 3;  /* Now covers columns 1-3 */
-    grid-row: 3 / span 4;     /* Rows 3-6 */
-  }
-  /* Bottom-right merged cell: Originally boxes 15,16,17,18,21,22,23,24,27,28,29,30,33,34,35,36.
-    Now the first column has been removed, so it starts at column 4. */
-  .merged-4 {
-    grid-column: 4 / span 3;  /* Now covers columns 4-6 */
-    grid-row: 3 / span 4;     /* Rows 3-6 */
-    background-color: #C40000;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #FFEBEB;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+}
+
+/* Top-left merged cell: Boxes 1,2,7,8 */
+.merged-1 {
+  grid-column: 1 / span 2;  /* Columns 1-2 */
+  grid-row: 1 / span 2;     /* Rows 1-2 */
+}
+
+/* Top-right merged cell: Boxes 3,4,5,6,9,10,11,12 */
+.merged-2 {
+  display: block;
+  padding: 20px;
+  grid-column: 3 / span 4;  /* Columns 3-6 */
+  grid-row: 1 / span 2;     /* Rows 1-2 */
+  font-family: "highest-praise", sans-serif;
+  font-style: normal;
+  font-size: 2.75vw;
+  text-decoration: none;
+}
+
+/* Bottom-left merged cell: Originally boxes 13,14,19,20,25,26,31,32.
+ Now expanded to include the left column from merged-4 (15,21,27,33). */
+.merged-3 {
+  grid-column: 1 / span 3;  /* Now covers columns 1-3 */
+  grid-row: 3 / span 4;     /* Rows 3-6 */
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Bottom-right merged cell: Originally boxes 15,16,17,18,21,22,23,24,27,28,29,30,33,34,35,36.
+ Now the first column has been removed, so it starts at column 4. */
+.merged-4 {
+  grid-column: 4 / span 3;  /* Now covers columns 4-6 */
+  grid-row: 3 / span 4;     /* Rows 3-6 */
+  background-color: #C40000;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px;
+  overflow-y: auto;
+  color: white;
+}
 /* #endregion */
-
-
-
-
 
 
 /* #region Site Fonts */
 
 @font-face {
-    font-family: 'pexico_microregular';
-    src: url('../fonts/setup_-_pexicomicro-regular-webfont.woff2') format('woff2'),
-         url('../fonts/setup_-_pexicomicro-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  
-  }
-  
-  @font-face {
-    font-family:'HelveticaNeueLT Pro 65 Md';
-    src: url('../fonts/HelveticaNeueLTPro-Md.eot');
-    src: url('../fonts/HelveticaNeueLTPro-Md.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/HelveticaNeueLTPro-Md.woff2') format('woff2'),
-    url('../fonts/HelveticaNeueLTPro-Md.woff') format('woff'),
-    url('../fonts/HelveticaNeueLTPro-Md.ttf') format('truetype'),
-    url('../fonts/HelveticaNeueLTPro-Md.otf') format('opentype'),
-    url('../fonts/HelveticaNeueLTPro-Md.svg#HelveticaNeueLTPro-Md') format('svg');
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+0020-02DC;
-  }
-  
+  font-family: 'pexico_microregular';
+  src: url('../fonts/setup_-_pexicomicro-regular-webfont.woff2') format('woff2'),
+       url('../fonts/setup_-_pexicomicro-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:'HelveticaNeueLT Pro 65 Md';
+  src: url('../fonts/HelveticaNeueLTPro-Md.eot');
+  src: url('../fonts/HelveticaNeueLTPro-Md.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/HelveticaNeueLTPro-Md.woff2') format('woff2'),
+  url('../fonts/HelveticaNeueLTPro-Md.woff') format('woff'),
+  url('../fonts/HelveticaNeueLTPro-Md.ttf') format('truetype'),
+  url('../fonts/HelveticaNeueLTPro-Md.otf') format('opentype'),
+  url('../fonts/HelveticaNeueLTPro-Md.svg#HelveticaNeueLTPro-Md') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-02DC;
+}
+
 /* #endregion */
 
+/* #region Gallery Styles */
 
+.sidebar {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-family: "highest-praise", sans-serif;
+  font-size: 2em;
+}
+
+.category-list {
+  list-style: none;
+}
+
+.category-list li {
+  margin-bottom: 15px;
+}
+
+.category-link {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.category-link:hover {
+  color: #C40000;
+}
+
+.category-link.active {
+  color: #C40000;
+  font-weight: bold;
+}
+
+.gallery-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.gallery-title {
+  margin-bottom: 30px;
+  font-family: "highest-praise", sans-serif;
+  font-size: 2.5em;
+  color: white;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.gallery-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.gallery-item-info {
+  padding: 15px;
+}
+
+.gallery-item-info h3 {
+  margin-bottom: 5px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1em;
+}
+
+.gallery-item-info p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* #endregion */
+
+/* #region Responsive Styles */
+
+@media screen and (max-width: 1024px) {
+  .merged-2 {
+      font-size: 3vw;
+  }
+  
+  .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html, body {
+      overflow: auto;
+  }
+  
+  .grid-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      height: auto;
+      min-height: 100vh;
+  }
+  
+  .merged-1 {
+      grid-column: 1;
+      grid-row: 1;
+      padding: 20px;
+  }
+  
+  .merged-2 {
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 5vw;
+      padding: 15px 10px;
+  }
+  
+  .merged-3 {
+      grid-column: 1;
+      grid-row: 3;
+      min-height: 200px;
+  }
+  
+  .merged-4 {
+      grid-column: 1;
+      grid-row: 4;
+      border-radius: 20px 20px 0 0;
+      min-height: 500px;
+  }
+  
+  .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+  
+  .gallery-item-info h3 {
+      font-size: 1em;
+  }
+  
+  .gallery-item-info p {
+      font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .merged-2 {
+      font-size: 6vw;
+  }
+  
+  .merged-2 div {
+      flex-direction: column;
+      gap: 15px;
+  }
+  
+  .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+  }
+  
+  .gallery-title {
+      font-size: 2em;
+  }
+  
+  .sidebar h2 {
+      font-size: 1.8em;
+  }
+  
+  .category-link {
+      font-size: 1.1em;
+  }
+}
+
+/* #endregion */
