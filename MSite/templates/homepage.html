@@ -13,13 +13,15 @@
 
 {% block body %} 
 <div class="grid-container">
-  <div class="grid-item merged-1"><img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" width="75%" height="75%"></div>
-  <div class="grid-item merged-2">
+  <div class="grid-item merged-1">
+    <a href="{{ url_for('views.home') }}" class="logo-link">
+      <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" width="75%" height="75%">
+    </a>
+  </div>  <div class="grid-item merged-2">
     <div style="display: flex; justify-content: space-around; align-items: center; height: 100%;">
-      <a href="{{ url_for('views.about') }}" style="text-decoration: none; color: inherit;">About</a>
-      <a href="#" style="text-decoration: none; color: inherit;">Gallery</a>
-      <a href="#" style="text-decoration: none; color: inherit;">Blog</a>
-      <a href="#" style="text-decoration: none; color: inherit;">Contact</a>
+      <a href="{{ url_for('views.about') }}" class="nav-link {% if request.path == url_for('views.about') %}active{% endif %}">About</a>
+      <a href="{{ url_for('views.gallery') }}" class="nav-link {% if request.path == url_for('views.gallery') %}active{% endif %}">Gallery</a>
+      <a href="#" class="nav-link {% if request.path == '/blog' %}active{% endif %}">Blog</a>
     </div>
   </div>
   <div class="grid-item merged-3">SIDEBAR</div>
@@ -27,4 +29,3 @@
 </div>
 
 {% endblock %}
-

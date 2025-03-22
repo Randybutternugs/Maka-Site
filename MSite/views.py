@@ -25,8 +25,7 @@ def get_gif_urls():
 
 @views.route('/')
 def home():
-    blue_particle_number = 200
-    return render_template("homepage.html", blue_particle_number=blue_particle_number)
+    return render_template("gallery.html")
 
 #endregion
 
@@ -37,7 +36,7 @@ def home():
 
 @views.route('/about')
 def about():
-    return "This is the about page"
+    return render_template("about.html")
 
 #endregion
 

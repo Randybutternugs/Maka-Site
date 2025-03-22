@@ -13,72 +13,157 @@
 
 {% block body %} 
 <div class="grid-container">
-  <div class="grid-item merged-1"><img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" width="75%" height="75%"></div>
+  <div class="grid-item merged-1">
+    <a href="{{ url_for('views.home') }}" class="logo-link">
+      <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" width="75%" height="75%">
+    </a>
+  </div>
   <div class="grid-item merged-2">
     <div style="display: flex; justify-content: space-around; align-items: center; height: 100%;">
-      <a href="{{ url_for('views.about') }}" style="text-decoration: none; color: inherit;">About</a>
-      <a href="{{ url_for('views.gallery') }}" style="text-decoration: none; color: inherit;">Gallery</a>
-      <a href="#" style="text-decoration: none; color: inherit;">Blog</a>
-      <a href="#" style="text-decoration: none; color: inherit;">Contact</a>
+      <!-- Hidden navigation links 
+      <a href="{{ url_for('views.about') }}" class="nav-link {% if request.path == url_for('views.about') %}active{% endif %}">About</a>
+      <a href="#" class="nav-link {% if request.path == '/blog' %}active{% endif %}">Blog</a>
+      
+      <h1 style="font-family: 'highest-praise', sans-serif; font-size: 3vw;">Gallery</h1>
+      -->
     </div>
   </div>
-  <div class="grid-item merged-3">
+  <div class="grid-item merged-3 gallery-sidebar">
     <div class="sidebar">
       <h2>Categories</h2>
       <ul class="category-list">
         <li><a href="#all" class="category-link active">All</a></li>
         <li><a href="#digital" class="category-link">Digital Art</a></li>
-        <li><a href="#traditional" class="category-link">Traditional</a></li>
+        <li><a href="#editorial" class="category-link">Editorial</a></li>
+        <li><a href="#monochrome" class="category-link">Monochrome</a></li>
         <li><a href="#sketches" class="category-link">Sketches</a></li>
+        <li><a href="#print" class="category-link">Print</a></li>
       </ul>
     </div>
   </div>
-  <div class="grid-item merged-4">
+  <div class="grid-item merged-4 gallery-content">
     <div class="gallery-container">
+      <!-- Placeholder for background ribbon SVG - replace with your custom SVG -->
+      <div class="background-ribbon"></div>
+      
       <h1 class="gallery-title">Gallery</h1>
       <div class="gallery-grid">
-        <!-- Gallery images will be populated here -->
-        <!-- Example items (replace with your actual images) -->
+        <!-- Digital Art Images - Combined as multipost -->
         <div class="gallery-item" data-category="digital">
-          <img src="{{ url_for('static', filename='images/gallery-placeholder-1.jpg') }}" alt="Artwork 1">
-          <div class="gallery-item-info">
-            <h3>Artwork Title 1</h3>
-            <p>Digital Art, 2023</p>
+          <div class="thumbnail-container" data-gallery-id="colorSubmissions">
+            <img src="{{ url_for('static', filename='images/gallery/color submit 2.jpg') }}" alt="Color Submissions" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+              <span class="multi-indicator">+1</span>
+            </div>
           </div>
         </div>
-        <div class="gallery-item" data-category="traditional">
-          <img src="{{ url_for('static', filename='images/gallery-placeholder-2.jpg') }}" alt="Artwork 2">
-          <div class="gallery-item-info">
-            <h3>Artwork Title 2</h3>
-            <p>Traditional, 2023</p>
+        
+        <!-- Editorial Image -->
+        <div class="gallery-item" data-category="editorial">
+          <div class="thumbnail-container" data-gallery-id="editorial">
+            <img src="{{ url_for('static', filename='images/gallery/final final final editorial submission.jpg') }}" alt="Editorial Submission" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+            </div>
           </div>
         </div>
+        
+        <!-- Monochrome Images -->
+        <div class="gallery-item" data-category="monochrome">
+          <div class="thumbnail-container" data-gallery-id="mon0">
+            <img src="{{ url_for('static', filename='images/gallery/mon0.jpg') }}" alt="Monochrome 0" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="monochrome">
+          <div class="thumbnail-container" data-gallery-id="mon1">
+            <img src="{{ url_for('static', filename='images/gallery/mon1.jpg') }}" alt="Monochrome 1" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="monochrome">
+          <div class="thumbnail-container" data-gallery-id="mon2">
+            <img src="{{ url_for('static', filename='images/gallery/mon2.jpg') }}" alt="Monochrome 2" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="monochrome">
+          <div class="thumbnail-container" data-gallery-id="mon3">
+            <img src="{{ url_for('static', filename='images/gallery/mon3.jpg') }}" alt="Monochrome 3" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="monochrome">
+          <div class="thumbnail-container" data-gallery-id="mon4">
+            <img src="{{ url_for('static', filename='images/gallery/mon4.jpg') }}" alt="Monochrome 4" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sketches Multi-Image (Consolidated) -->
         <div class="gallery-item" data-category="sketches">
-          <img src="{{ url_for('static', filename='images/gallery-placeholder-3.jpg') }}" alt="Artwork 3">
-          <div class="gallery-item-info">
-            <h3>Artwork Title 3</h3>
-            <p>Sketch, 2022</p>
+          <div class="thumbnail-container" data-gallery-id="sketches">
+            <img src="{{ url_for('static', filename='images/gallery/Sketches/IMG_1577.jpg') }}" alt="Sketches Collection" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+              <span class="multi-indicator">+8</span>
+            </div>
           </div>
         </div>
-        <div class="gallery-item" data-category="digital">
-          <img src="{{ url_for('static', filename='images/gallery-placeholder-4.jpg') }}" alt="Artwork 4">
-          <div class="gallery-item-info">
-            <h3>Artwork Title 4</h3>
-            <p>Digital Art, 2023</p>
+        
+        <!-- Print Multi-image Series -->
+        <div class="gallery-item" data-category="print">
+          <div class="thumbnail-container" data-gallery-id="pdf1">
+            <img src="{{ url_for('static', filename='images/gallery/pdf 1/Page_1.jpg') }}" alt="Print Collection 1" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+              <span class="multi-indicator">+7</span>
+            </div>
           </div>
         </div>
-        <div class="gallery-item" data-category="traditional">
-          <img src="{{ url_for('static', filename='images/gallery-placeholder-5.jpg') }}" alt="Artwork 5">
-          <div class="gallery-item-info">
-            <h3>Artwork Title 5</h3>
-            <p>Traditional, 2022</p>
+        
+        <div class="gallery-item" data-category="print">
+          <div class="thumbnail-container" data-gallery-id="pdf2">
+            <img src="{{ url_for('static', filename='images/gallery/pdf 2/Page_1.jpg') }}" alt="Print Collection 2" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+              <span class="multi-indicator">+3</span>
+            </div>
           </div>
         </div>
-        <div class="gallery-item" data-category="sketches">
-          <img src="{{ url_for('static', filename='images/gallery-placeholder-6.jpg') }}" alt="Artwork 6">
-          <div class="gallery-item-info">
-            <h3>Artwork Title 6</h3>
-            <p>Sketch, 2023</p>
+        
+        <div class="gallery-item" data-category="print">
+          <div class="thumbnail-container" data-gallery-id="pdf3">
+            <img src="{{ url_for('static', filename='images/gallery/pdf 3/Page_1.jpg') }}" alt="Print Collection 3" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+              <span class="multi-indicator">+11</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="print">
+          <div class="thumbnail-container" data-gallery-id="pdf4">
+            <img src="{{ url_for('static', filename='images/gallery/pdf 4/Page_1.jpg') }}" alt="Print Collection 4" class="gallery-thumbnail">
+            <div class="thumbnail-overlay">
+              <span class="view-icon">&#128065;</span>
+              <span class="multi-indicator">+15</span>
+            </div>
           </div>
         </div>
       </div>
@@ -86,9 +171,45 @@
   </div>
 </div>
 
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-image">
+      <img src="{{ url_for('static', filename='images/IMG_1217.jpg') }}" alt="Footer Image">
+    </div>
+    <div class="footer-text">
+      <h3>About the Artist</h3>
+      <p>Lorem ipsum dolor sit amet</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="gallery-lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <div class="lightbox-header">
+      <button class="lightbox-close">&times;</button>
+    </div>
+    <div class="lightbox-image-container">
+      <button class="lightbox-nav prev">&#10094;</button>
+      <div class="lightbox-image-wrapper">
+        <img src="" alt="" class="lightbox-image">
+      </div>
+      <button class="lightbox-nav next">&#10095;</button>
+    </div>
+    <div class="lightbox-details">
+      <h2 class="lightbox-title"></h2>
+      <p class="lightbox-description"></p>
+      <div class="lightbox-counter">
+        <span class="current">1</span>/<span class="total">1</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Simple gallery filtering
   document.addEventListener('DOMContentLoaded', function() {
+    // Gallery filtering
     const categoryLinks = document.querySelectorAll('.category-link');
     const galleryItems = document.querySelectorAll('.gallery-item');
     
@@ -114,6 +235,518 @@
         });
       });
     });
+    
+    // Lightbox functionality
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const lightboxTitle = lightbox.querySelector('.lightbox-title');
+    const lightboxDescription = lightbox.querySelector('.lightbox-description');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxPrev = lightbox.querySelector('.lightbox-nav.prev');
+    const lightboxNext = lightbox.querySelector('.lightbox-nav.next');
+    const lightboxCurrent = lightbox.querySelector('.lightbox-counter .current');
+    const lightboxTotal = lightbox.querySelector('.lightbox-counter .total');
+    
+    let currentGalleryData = null;
+    let currentImageIndex = 0;
+    
+    // Gallery data
+    const galleryData = {
+      // Digital art images as a combined multipost
+      'colorSubmissions': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/color submit 2.jpg') }}",
+            alt: "Color Submission 2",
+            title: "Color Submission 2",
+            description: "Digital color artwork submission."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/color submit 3.jpg') }}",
+            alt: "Color Submission 3",
+            title: "Color Submission 3",
+            description: "Digital color artwork submission."
+          }
+        ]
+      },
+      
+      // Editorial image
+      'editorial': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/final final final editorial submission.jpg') }}",
+            alt: "Editorial Submission",
+            title: "Editorial Submission",
+            description: "Final editorial artwork submission."
+          }
+        ]
+      },
+      
+      // Monochrome images
+      'mon0': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/mon0.jpg') }}",
+            alt: "Monochrome Study 0",
+            title: "Monochrome Study 0",
+            description: "Black and white artistic study."
+          }
+        ]
+      },
+      'mon1': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/mon1.jpg') }}",
+            alt: "Monochrome Study 1",
+            title: "Monochrome Study 1",
+            description: "Black and white artistic study."
+          }
+        ]
+      },
+      'mon2': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/mon2.jpg') }}",
+            alt: "Monochrome Study 2",
+            title: "Monochrome Study 2",
+            description: "Black and white artistic study."
+          }
+        ]
+      },
+      'mon3': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/mon3.jpg') }}",
+            alt: "Monochrome Study 3",
+            title: "Monochrome Study 3",
+            description: "Black and white artistic study."
+          }
+        ]
+      },
+      'mon4': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/mon4.jpg') }}",
+            alt: "Monochrome Study 4",
+            title: "Monochrome Study 4",
+            description: "Black and white artistic study."
+          }
+        ]
+      },
+      
+      // Sketches as a consolidated multi-image collection
+      'sketches': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1577.jpg') }}",
+            alt: "Sketch 1",
+            title: "Sketch 1",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1578.jpg') }}",
+            alt: "Sketch 2",
+            title: "Sketch 2",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1579.jpg') }}",
+            alt: "Sketch 3",
+            title: "Sketch 3",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1580.jpg') }}",
+            alt: "Sketch 4",
+            title: "Sketch 4",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1581.jpg') }}",
+            alt: "Sketch 5",
+            title: "Sketch 5",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1582.jpg') }}",
+            alt: "Sketch 6",
+            title: "Sketch 6",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1583.jpg') }}",
+            alt: "Sketch 7",
+            title: "Sketch 7",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1584.jpg') }}",
+            alt: "Sketch 8",
+            title: "Sketch 8",
+            description: "Traditional sketch artwork."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/Sketches/IMG_1585.jpg') }}",
+            alt: "Sketch 9",
+            title: "Sketch 9",
+            description: "Traditional sketch artwork."
+          }
+        ]
+      },
+      
+      // PDF Multi-image Collections
+      'pdf1': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_1.jpg') }}",
+            alt: "Print Collection 1 - Page 1",
+            title: "Print Collection 1 - Page 1",
+            description: "First page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_2.jpg') }}",
+            alt: "Print Collection 1 - Page 2",
+            title: "Print Collection 1 - Page 2",
+            description: "Second page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_3.jpg') }}",
+            alt: "Print Collection 1 - Page 3",
+            title: "Print Collection 1 - Page 3",
+            description: "Third page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_4.jpg') }}",
+            alt: "Print Collection 1 - Page 4",
+            title: "Print Collection 1 - Page 4",
+            description: "Fourth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_5.jpg') }}",
+            alt: "Print Collection 1 - Page 5",
+            title: "Print Collection 1 - Page 5",
+            description: "Fifth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_6.jpg') }}",
+            alt: "Print Collection 1 - Page 6",
+            title: "Print Collection 1 - Page 6",
+            description: "Sixth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_7.jpg') }}",
+            alt: "Print Collection 1 - Page 7",
+            title: "Print Collection 1 - Page 7",
+            description: "Seventh page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 1/Page_8.jpg') }}",
+            alt: "Print Collection 1 - Page 8",
+            title: "Print Collection 1 - Page 8",
+            description: "Eighth page of print collection series."
+          }
+        ]
+      },
+      'pdf2': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 2/Page_1.jpg') }}",
+            alt: "Print Collection 2 - Page 1",
+            title: "Print Collection 2 - Page 1",
+            description: "First page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 2/Page_2.jpg') }}",
+            alt: "Print Collection 2 - Page 2",
+            title: "Print Collection 2 - Page 2",
+            description: "Second page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 2/Page_3.jpg') }}",
+            alt: "Print Collection 2 - Page 3",
+            title: "Print Collection 2 - Page 3",
+            description: "Third page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 2/Page_4.jpg') }}",
+            alt: "Print Collection 2 - Page 4",
+            title: "Print Collection 2 - Page 4",
+            description: "Fourth page of print collection series."
+          }
+        ]
+      },
+      'pdf3': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_1.jpg') }}",
+            alt: "Print Collection 3 - Page 1",
+            title: "Print Collection 3 - Page 1",
+            description: "First page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_2.jpg') }}",
+            alt: "Print Collection 3 - Page 2",
+            title: "Print Collection 3 - Page 2",
+            description: "Second page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_3.jpg') }}",
+            alt: "Print Collection 3 - Page 3",
+            title: "Print Collection 3 - Page 3",
+            description: "Third page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_4.jpg') }}",
+            alt: "Print Collection 3 - Page 4",
+            title: "Print Collection 3 - Page 4",
+            description: "Fourth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_5.jpg') }}",
+            alt: "Print Collection 3 - Page 5",
+            title: "Print Collection 3 - Page 5",
+            description: "Fifth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_6.jpg') }}",
+            alt: "Print Collection 3 - Page 6",
+            title: "Print Collection 3 - Page 6",
+            description: "Sixth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_7.jpg') }}",
+            alt: "Print Collection 3 - Page 7",
+            title: "Print Collection 3 - Page 7",
+            description: "Seventh page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_8.jpg') }}",
+            alt: "Print Collection 3 - Page 8",
+            title: "Print Collection 3 - Page 8",
+            description: "Eighth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_9.jpg') }}",
+            alt: "Print Collection 3 - Page 9",
+            title: "Print Collection 3 - Page 9",
+            description: "Ninth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_10.jpg') }}",
+            alt: "Print Collection 3 - Page 10",
+            title: "Print Collection 3 - Page 10",
+            description: "Tenth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_11.jpg') }}",
+            alt: "Print Collection 3 - Page 11",
+            title: "Print Collection 3 - Page 11",
+            description: "Eleventh page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 3/Page_12.jpg') }}",
+            alt: "Print Collection 3 - Page 12",
+            title: "Print Collection 3 - Page 12",
+            description: "Twelfth page of print collection series."
+          }
+        ]
+      },
+      'pdf4': {
+        images: [
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_1.jpg') }}",
+            alt: "Print Collection 4 - Page 1",
+            title: "Print Collection 4 - Page 1",
+            description: "First page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_2.jpg') }}",
+            alt: "Print Collection 4 - Page 2",
+            title: "Print Collection 4 - Page 2",
+            description: "Second page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_3.jpg') }}",
+            alt: "Print Collection 4 - Page 3",
+            title: "Print Collection 4 - Page 3",
+            description: "Third page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_4.jpg') }}",
+            alt: "Print Collection 4 - Page 4",
+            title: "Print Collection 4 - Page 4",
+            description: "Fourth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_5.jpg') }}",
+            alt: "Print Collection 4 - Page 5",
+            title: "Print Collection 4 - Page 5",
+            description: "Fifth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_6.jpg') }}",
+            alt: "Print Collection 4 - Page 6",
+            title: "Print Collection 4 - Page 6",
+            description: "Sixth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_7.jpg') }}",
+            alt: "Print Collection 4 - Page 7",
+            title: "Print Collection 4 - Page 7",
+            description: "Seventh page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_8.jpg') }}",
+            alt: "Print Collection 4 - Page 8",
+            title: "Print Collection 4 - Page 8",
+            description: "Eighth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_9.jpg') }}",
+            alt: "Print Collection 4 - Page 9",
+            title: "Print Collection 4 - Page 9",
+            description: "Ninth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_10.jpg') }}",
+            alt: "Print Collection 4 - Page 10",
+            title: "Print Collection 4 - Page 10",
+            description: "Tenth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_11.jpg') }}",
+            alt: "Print Collection 4 - Page 11",
+            title: "Print Collection 4 - Page 11",
+            description: "Eleventh page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_12.jpg') }}",
+            alt: "Print Collection 4 - Page 12",
+            title: "Print Collection 4 - Page 12",
+            description: "Twelfth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_13.jpg') }}",
+            alt: "Print Collection 4 - Page 13",
+            title: "Print Collection 4 - Page 13",
+            description: "Thirteenth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_14.jpg') }}",
+            alt: "Print Collection 4 - Page 14",
+            title: "Print Collection 4 - Page 14",
+            description: "Fourteenth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_15.jpg') }}",
+            alt: "Print Collection 4 - Page 15",
+            title: "Print Collection 4 - Page 15",
+            description: "Fifteenth page of print collection series."
+          },
+          {
+            src: "{{ url_for('static', filename='images/gallery/pdf 4/Page_16.jpg') }}",
+            alt: "Print Collection 4 - Page 16",
+            title: "Print Collection 4 - Page 16",
+            description: "Sixteenth page of print collection series."
+          }
+        ]
+      }
+    };
+    
+    // Open lightbox when clicking on a gallery item
+    document.querySelectorAll('.thumbnail-container').forEach(item => {
+      item.addEventListener('click', function() {
+        const galleryId = this.dataset.galleryId;
+        openLightbox(galleryId);
+      });
+    });
+    
+    // Close lightbox when clicking close button or outside the content
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+    
+    // Navigation controls
+    lightboxPrev.addEventListener('click', showPrevImage);
+    lightboxNext.addEventListener('click', showNextImage);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'ArrowRight') {
+        showNextImage();
+      }
+    });
+    
+    function openLightbox(galleryId) {
+      currentGalleryData = galleryData[galleryId];
+      currentImageIndex = 0;
+      
+      updateLightboxContent();
+      
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+    
+    function showPrevImage() {
+      if (!currentGalleryData) return;
+      
+      currentImageIndex--;
+      if (currentImageIndex < 0) {
+        currentImageIndex = currentGalleryData.images.length - 1;
+      }
+      
+      updateLightboxContent();
+    }
+    
+    function showNextImage() {
+      if (!currentGalleryData) return;
+      
+      currentImageIndex++;
+      if (currentImageIndex >= currentGalleryData.images.length) {
+        currentImageIndex = 0;
+      }
+      
+      updateLightboxContent();
+    }
+    
+    function updateLightboxContent() {
+      if (!currentGalleryData) return;
+      
+      const imageData = currentGalleryData.images[currentImageIndex];
+      
+      // Update image and text
+      lightboxImage.src = imageData.src;
+      lightboxImage.alt = imageData.alt;
+      lightboxTitle.textContent = imageData.title;
+      lightboxDescription.textContent = imageData.description;
+      
+      // Update counter
+      lightboxCurrent.textContent = currentImageIndex + 1;
+      lightboxTotal.textContent = currentGalleryData.images.length;
+      
+      // Show/hide navigation buttons based on number of images
+      if (currentGalleryData.images.length <= 1) {
+        lightboxPrev.style.display = 'none';
+        lightboxNext.style.display = 'none';
+      } else {
+        lightboxPrev.style.display = 'block';
+        lightboxNext.style.display = 'block';
+      }
+    }
   });
 </script>
 {% endblock %}

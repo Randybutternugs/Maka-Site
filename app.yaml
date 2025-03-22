@@ -19,6 +19,9 @@ handlers:
 - url: /static/images
   static_dir: MSite/static/images
 
+- url: /static/images/gallery
+  static_dir: MSite/static/images/gallery
+
 #required for SSL
 - url: /.*
   secure: always
