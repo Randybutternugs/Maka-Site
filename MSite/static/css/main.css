@@ -79,7 +79,7 @@ body {
 .merged-4 {
   grid-column: 4 / span 3;  /* Covers columns 4-6 */
   grid-row: 3 / span 4;     /* Rows 3-6 */
-  background-color: #C40000;
+  background-color: #F8B5B7;
   border-radius: 20px;
   padding: 20px;
   overflow-y: visible; /* Changed from auto to visible */
@@ -154,6 +154,7 @@ body {
   margin-bottom: 20px;
   font-family: "highest-praise", sans-serif;
   font-size: 2em;
+  color: #901C1D;
 }
 
 .category-list {
@@ -168,8 +169,10 @@ body {
 .category-link {
   text-decoration: none;
   color: #333;
-  font-family: 'Nunito', sans-serif;
+  font-family: "marigny", sans-serif;
   font-size: 1.2em;
+  font-weight: 500;
+  font-style: normal;
   transition: all 0.3s ease;
   position: relative;
   padding-left: 5px;
@@ -341,8 +344,8 @@ body {
 .gallery-title {
   margin-bottom: 30px;
   font-family: "highest-praise", sans-serif;
-  font-size: 2.5em;
-  color: white;
+  font-size: 2em;
+  color: #901C1D;
 }
 
 .gallery-grid {
@@ -545,6 +548,126 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 0.9em;
   opacity: 0.7;
+}
+
+/* Social Media Link Styles */
+
+
+.social-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #901C1D;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+  font-size: 1.5vw; /* Updated to 1.5vw as you mentioned */
+  font-family: "marigny", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.social-link:hover {
+  color: #C40000;
+}
+
+.social-icon-container {
+  width: 50px; /* Increased to 50px as you mentioned */
+  height: 50px; /* Increased to 50px as you mentioned */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.social-icon {
+  width: 46px; /* Increased to 46px as you mentioned */
+  height: 46px; /* Increased to 46px as you mentioned */
+}
+
+.social-text {
+  white-space: nowrap;
+}
+
+/* Responsive adjustments for social links */
+@media screen and (max-width: 1200px) {
+  .social-icon-container {
+    width: 45px;
+    height: 45px;
+  }
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .social-icon-container {
+    width: 40px;
+    height: 40px;
+  }
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Social links container for mobile */
+  .merged-2 > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 0;
+  }
+  
+  /* Each social link becomes a list item */
+  .social-link {
+    margin: 8px 0;
+    font-size: 2.5vw;
+    width: 80%;
+    justify-content: center;
+  }
+  
+  .social-icon-container {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .social-link {
+    font-size: 3.5vw;
+    width: 90%;
+  }
+  
+  /* Add a subtle separator between "list items" */
+  .social-link:not(:last-child) {
+    border-bottom: 1px solid rgba(144, 28, 29, 0.1);
+    padding-bottom: 8px;
+  }
+}
+
+/* Social links container */
+.social-links-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .social-links-container {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 /* #endregion */

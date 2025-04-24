@@ -8,7 +8,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.typekit.net/yli0epv.css">
+<link rel="stylesheet" href="https://use.typekit.net/yli0epv.css"> 
+
+<!-- 
+MARIGNY FONT:
+
+Marigny Book
+font-family: "marigny", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Marigny Book Italic
+font-family: "marigny", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Marigny Medium
+font-family: "marigny", sans-serif;
+font-weight: 500;
+font-style: normal;
+
+Marigny Medium Italic
+font-family: "marigny", sans-serif;
+font-weight: 500;
+font-style: italic;
+
+Marigny Bold
+font-family: "marigny", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Marigny Bold Italic
+font-family: "marigny", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Marigny Black
+font-family: "marigny", sans-serif;
+font-weight: 900;
+font-style: normal;
+
+-->
 {% endblock %}
 
 {% block body %} 
@@ -19,13 +59,25 @@
     </a>
   </div>
   <div class="grid-item merged-2">
-    <div style="display: flex; justify-content: space-around; align-items: center; height: 100%;">
-      <!-- Hidden navigation links 
-      <a href="{{ url_for('views.about') }}" class="nav-link {% if request.path == url_for('views.about') %}active{% endif %}">About</a>
-      <a href="#" class="nav-link {% if request.path == '/blog' %}active{% endif %}">Blog</a>
-      
-      <h1 style="font-family: 'highest-praise', sans-serif; font-size: 3vw;">Gallery</h1>
-      -->
+    <div class="social-links-container">
+      <a href="mailto:makaylasemail1@email.com" class="nav-link social-link">
+        <div class="social-icon-container">
+          <img src="{{ url_for('static', filename='images/makemail.png') }}" alt="Email" class="social-icon">
+        </div>
+        <div class="social-text">makaylasemail1@email.com</div>
+      </a>
+      <a href="https://instagram.com/makaylas.instagram" class="nav-link social-link">
+        <div class="social-icon-container">
+          <img src="{{ url_for('static', filename='images/makinsta.png') }}" alt="Instagram" class="social-icon">
+        </div>
+        <div class="social-text">makaylas.instagram</div>
+      </a>
+      <a href="tel:7276009517" class="nav-link social-link">
+        <div class="social-icon-container">
+          <img src="{{ url_for('static', filename='images/makphone.png') }}" alt="Phone" class="social-icon">
+        </div>
+        <div class="social-text">(727)-600-9517</div>
+      </a>
     </div>
   </div>
   <div class="grid-item merged-3 gallery-sidebar">
