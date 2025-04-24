@@ -836,16 +836,16 @@ body {
     grid-column: 1 !important;
     grid-row: 4;
     border-radius: 20px;
-    min-height: 500px;
-    overflow-y: auto; /* Re-enable scrolling for mobile only */
+    min-height: auto;
+    overflow-y: visible;
     height: auto;
-    max-height: 500px; /* Limit height on mobile */
+    max-height: none;
   }
   
   .merged-3-4 {
-    overflow-y: auto; /* Re-enable scrolling for mobile only */
+    overflow-y: visible;
     height: auto;
-    max-height: 500px; /* Limit height on mobile */
+    max-height: none;
   }
   
   .gallery-grid {
